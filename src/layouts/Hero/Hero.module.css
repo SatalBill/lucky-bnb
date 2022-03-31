@@ -1,0 +1,50 @@
+.heroContent {
+  flex: 1;
+  padding-top: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.luckyBnbHeroBanner_parent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.luckyBnbHeroBanner {
+  width: 80%;
+}
+
+.luckyBnbHeroBanner_content {
+  position: absolute;
+  right: 27%;
+  bottom: 32%;
+}
+
+.luckyBnbHeroBanner_content > * {
+  font-size: 6.5vw;
+}
+
+@media (max-width: 1000px) {
+  .heroContent {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 880px) {
+  .heroContent {
+    padding-top: 100px;
+  }
+
+  .luckyBnbHeroBanner {
+    width: 100%;
+  }
+
+  .luckyBnbHeroBanner_content {
+    right: 23%;
+    bottom: 34%;
+  }
+}

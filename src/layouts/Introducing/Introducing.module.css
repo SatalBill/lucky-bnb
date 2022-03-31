@@ -1,0 +1,26 @@
+.headings {
+  max-width: 856px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btns > :not(:last-child) {
+  margin-right: 20px;
+}
+
+@media (max-width: 500px) {
+  .btns {
+    flex-direction: column;
+  }
+
+  .btns > :not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+}

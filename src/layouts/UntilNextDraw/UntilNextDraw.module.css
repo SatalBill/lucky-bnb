@@ -1,0 +1,71 @@
+.content {
+  padding: 40px 2rem;
+  max-width: 635px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  background: url(../../assets/images/untilnextdrawBg.png);
+  background-size: 100% 100%;
+  /* background-position: center center; */
+  background-repeat: no-repeat no-repeat;
+}
+
+.sparkel1 {
+  position: absolute;
+  top: -95px;
+  left: -80px;
+}
+.sparkel2 {
+  position: absolute;
+  bottom: -95px;
+  right: -80px;
+  transform: rotate(-185deg);
+}
+
+.timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer > :not(:last-child) {
+  margin-right: 30px;
+}
+
+/* .countBox::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  height: 100%;
+  border: 2px solid transparent;
+  border-image: linear-gradient(
+    130deg,
+    rgba(232, 178, 53, 0.68),
+    transparent,
+    rgba(232, 178, 53, 0.68)
+  );
+  border-image-slice: 1;
+  z-index: -1;
+  border-radius: 20px;
+} */
+
+.statsWrapper > :not(:last-child) {
+  margin-bottom: 30px;
+}
+
+@media (max-width: 1200px) {
+  .statsWrapper > :not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 860px) {
+  .timer > :not(:last-child) {
+    margin-right: 0.8rem;
+  }
+}

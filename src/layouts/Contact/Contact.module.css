@@ -1,0 +1,96 @@
+.section {
+  display: flex;
+  align-items: center;
+}
+
+.left {
+  flex: 1;
+  margin-right: 2rem;
+}
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* LEFT ===  */
+
+.form_feilds {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+}
+
+.form_feilds > input,
+.form_feilds > textarea {
+  display: block;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.09);
+  border-radius: 4px;
+  padding: 18px 20px;
+  outline: none;
+  border: none;
+}
+
+.form_feilds textarea {
+  grid-column: 1/-1;
+  resize: none;
+  height: 135px;
+}
+
+.submit_btn {
+  background: linear-gradient(90deg, #f4a917 0%, #fcba59 107.58%);
+  border-radius: 4px;
+  padding: 16px 80px;
+}
+
+/* RIGHT ===  */
+
+.coinMachine_wrapper {
+  /* border: 2px solid red; */
+}
+
+.coinMachine_title {
+  position: absolute;
+  top: 56%;
+  left: 46%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+}
+
+.coinMachine_title > :not(:last-child) {
+  margin-right: 1.5vw;
+}
+
+.coinMachine_title span {
+  font-size: 5vw;
+}
+
+@media (max-width: 1000px) {
+  .section {
+    flex-direction: column-reverse;
+    align-items: unset;
+  }
+
+  .left {
+    flex: 1;
+    margin-right: 0rem;
+    margin-top: 2rem;
+  }
+
+  .right {
+    justify-content: center;
+  }
+
+  .coinMachine {
+    max-width: 400px;
+    width: 100%;
+  }
+
+  .form_feilds {
+    grid-gap: 10px;
+  }
+}

@@ -1,0 +1,42 @@
+.btn {
+  padding: 16px 22px;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
+
+  background: linear-gradient(black, black) padding-box,
+    linear-gradient(
+        130deg,
+        rgba(232, 178, 53, 0.68),
+        transparent,
+        rgba(232, 178, 53, 0.68)
+      )
+      border-box;
+}
+
+/* .btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  height: 100%;
+  border: 2px solid transparent;
+
+  border-image: linear-gradient(
+    130deg,
+    rgba(232, 178, 53, 0.68),
+    transparent,
+    rgba(232, 178, 53, 0.68)
+  );
+  border-image-slice: 1;
+} */
+
+@media (max-width: 600px) {
+  .btn {
+    padding: 12px 14px;
+  }
+}

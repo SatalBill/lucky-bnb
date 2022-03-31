@@ -1,0 +1,28 @@
+.section {
+  display: flex;
+  align-items: center;
+}
+
+.left {
+  margin-right: 40px;
+}
+
+.howDoesItWork_Image {
+  width: 404px;
+}
+
+@media (max-width: 1200px) {
+  .section {
+    flex-direction: column;
+  }
+
+  .left {
+    margin-right: 0px;
+    margin-bottom: 30px;
+  }
+
+  .howDoesItWork_Image {
+    max-width: 260px;
+    width: 100%;
+  }
+}
