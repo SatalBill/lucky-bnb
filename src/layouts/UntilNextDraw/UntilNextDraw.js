@@ -9,7 +9,7 @@ import useCountdownTimer from "hooks/useCountdownTimer";
 function UntilNextDraw() {
   const isBellow860px = useMediaQuery("(max-width : 860px)");
   const { days, hours, minutes, seconds } = useCountdownTimer({
-    providedDate: "March 31, 2022 00:00:00",
+    providedDate: "April 3, 2022 00:00:00",
   });
   const timer2 = useCountdownTimer({
     providedDate: "April 3, 2022 00:00:00",
