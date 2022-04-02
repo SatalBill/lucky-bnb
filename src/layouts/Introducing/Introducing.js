@@ -9,6 +9,9 @@ function Introducing() {
   return (
     <div className="container-wrapper">
       <div className="mb-20px">
+
+      </div>
+      <div className="mb-20px">
         <div className={styles.headings}>
           <div className="mb-20px">
             <h1 className={`text-center ${isBellow860px ? "fs-28px" : "fs-56px"}  white weight-7 lh-1_2`}>

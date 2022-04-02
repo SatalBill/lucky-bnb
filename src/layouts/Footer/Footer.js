@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Footer.module.css";
 import SocialLink from "components/SocialLink/SocialLink";
 import { FaTwitter, FaTelegramPlane } from "react-icons/fa";
-import DocumentIcon from "Myicons/DocumentIcon";
+import { SiGitbook } from "react-icons/si";
 
 function Footer() {
   return (
@@ -23,7 +23,7 @@ function Footer() {
             <SocialLink
               link="https://luckyworldjackpot.gitbook.io/lucky-world-jackpot/"
               target="_blank"
-              icon={<DocumentIcon color={"white"} size={23} />}
+              icon={<SiGitbook size={20} />}
             />
             <SocialLink
               link="https://t.me/LuckyBNB_Official"

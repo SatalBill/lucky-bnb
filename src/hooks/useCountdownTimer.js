@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 
 function useCountdownTimer({ providedDate }) {
-  const [deadline, setDeadline] = useState(providedDate);
+  // console.log('9999999999', providedDate)
+  const tmp = providedDate
+  const [deadline, setDeadline] = useState(tmp);
 
   const [timerDays, setTimerDays] = useState("00");
   const [timerHours, setTimerHours] = useState("00");

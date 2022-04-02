@@ -4,3 +4,9 @@
   background: linear-gradient(90deg, #f4a917 0%, #fcba59 107.58%);
   border-radius: 4px;
 }
+.btn:hover {
+  filter: brightness(1.2);
+}
+.btn:active {
+  transform: translateY(1px);
+}

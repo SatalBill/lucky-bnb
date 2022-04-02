@@ -1,16 +1,23 @@
 import React from "react";
+import styled from 'styled-components'
 import styles from "./SocialLink.module.css";
 
-const SocialLink = ({ icon, style, link = "/", target = "_self" }) => {
+const StyledLink = styled.a`
+  transition: 0.2s all ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
+`
+
+const SocialLink = ({ icon, link = "/", target = "_self" }) => {
   return (
-    <a
+    <StyledLink
       href={link}
       target={target}
       className={`${styles.socialLink}`}
-      style={style}
     >
       {icon}
-    </a>
+    </StyledLink>
   );
 };
 

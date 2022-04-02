@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import styled from 'styled-components'
 import logo from "assets/images/logo.png";
 import styles from "./Navbar.module.css";
 import SocialLink from "components/SocialLink/SocialLink";
@@ -10,9 +11,18 @@ import { GrFormClose } from "react-icons/gr";
 import { GiHamburgerMenu } from "react-icons/gi";
 import OutsideClickDetector from "hooks/OutsideClickDetector";
 import { Link as ScrollLink } from "react-scroll";
-import DocumentIcon from "Myicons/DocumentIcon";
+import Header from '../../components/Header'
 
-function Navbar() {
+const HoverShadow = styled.p`
+  &:hover {
+    text-shadow: 1px 1px 2px white, 0 0 1em white, 0 0 0.2em darkblue;
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+`
+
+function Navbar(props) {
   const isBellow860px = useMediaQuery("(max-width : 860px)");
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,9 +47,7 @@ function Navbar() {
   });
 
   return (
-    <div
-      className={`${styles.navbarWrapper} ${isScrolled ? styles.scrolled : ""}`}
-    >
+    <div className={`${styles.navbarWrapper} ${isScrolled ? styles.scrolled : ""}`}>
       <div className="container-wrapper">
         <div className={styles.navbar}>
           <div>
@@ -48,10 +56,7 @@ function Navbar() {
 
           <div className={`black-screen ${isOpen ? "show" : ""}`}></div>
 
-          <div
-            ref={menuRef}
-            className={`${styles.navbar_right} ${isOpen ? styles.open : ""}`}
-          >
+          <div ref={menuRef} className={`${styles.navbar_right} ${isOpen ? styles.open : ""}`}>
             <button
               className={`${styles.closeBtn} w-fit-content mb-15px pointer`}
               style={{ marginLeft: "-10px" }}
@@ -65,41 +70,37 @@ function Navbar() {
                 to="home"
                 onClick={() => setIsOpen(false)}
                 offset={-100}
-                className={`fs-16px pointer ${
-                  isBellow860px ? "black" : "white"
-                }  weight-4`}
+                className={`fs-16px pointer ${isBellow860px ? "black" : "white"
+                  }  weight-4`}
               >
-                Home
+                <HoverShadow>Home</HoverShadow>
               </ScrollLink>
               <ScrollLink
                 to="token"
                 onClick={() => setIsOpen(false)}
                 offset={-150}
-                className={`fs-16px pointer ${
-                  isBellow860px ? "black" : "white"
-                }  weight-4`}
+                className={`fs-16px pointer ${isBellow860px ? "black" : "white"
+                  }  weight-4`}
               >
-                Token
+                <HoverShadow>Token</HoverShadow>
               </ScrollLink>
               <ScrollLink
                 to="roadmap"
                 onClick={() => setIsOpen(false)}
                 offset={-150}
-                className={`fs-16px pointer ${
-                  isBellow860px ? "black" : "white"
-                }  weight-4`}
+                className={`fs-16px pointer ${isBellow860px ? "black" : "white"
+                  }  weight-4`}
               >
-                Roadmap
+                <HoverShadow>Roadmap</HoverShadow>
               </ScrollLink>
               <ScrollLink
                 to="contact"
                 onClick={() => setIsOpen(false)}
                 offset={-150}
-                className={`fs-16px pointer ${
-                  isBellow860px ? "black" : "white"
-                }  weight-4`}
+                className={`fs-16px pointer ${isBellow860px ? "black" : "white"
+                  }  weight-4`}
               >
-                Contact
+                <HoverShadow>Contact</HoverShadow>
               </ScrollLink>
             </div>
 
@@ -128,10 +129,6 @@ function Navbar() {
                       }}
                       size={20}
                     />
-                    // <DocumentIcon
-                    //   color={isBellow860px ? "#e8b235" : "white"}
-                    //   size={23}
-                    // />
                   }
                 />
                 <SocialLink
@@ -147,8 +144,14 @@ function Navbar() {
                   }
                 />
               </div>
-
-              <Button title="Connect" />
+              {!props.connected && <Button title="Connect" onClick={props.connect} />}
+              {props.connected &&
+                <Header
+                  connected={props.connected}
+                  address={props.address}
+                  chainId={props.chainId}
+                  killSession={props.killSession}
+                />}
             </div>
           </div>
 

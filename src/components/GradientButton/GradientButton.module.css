@@ -14,6 +14,19 @@
       )
       border-box;
 }
+.btn:hover {
+  background: linear-gradient(black, black) padding-box,
+    linear-gradient(
+        -130deg,
+        rgba(232, 178, 53, 0.68),
+        transparent,
+        rgba(232, 178, 53, 0.68)
+      )
+      border-box;
+}
+.btn:active {
+  transform: translateY(1px);
+}
 
 /* .btn::before {
   content: "";
