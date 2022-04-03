@@ -134,7 +134,7 @@ function Hero(props) {
       props.isLoading(false)
       sendObj = {
         type: 'error',
-        msg: "Not a time yet, wait until next drawing timeslot"
+        msg: "Please wait for draw time expiry"
       }
       props.toast(sendObj)
       console.log('draw error=>', error)
