@@ -5,6 +5,9 @@ import luckyBnbHeroBanner from "assets/images/luckyBnbHeroBanner.png";
 import { Fade } from "react-awesome-reveal";
 import Web3 from 'web3'
 import Button from "components/Button/Button";
+import luckyBnbAbi from "abi/luckyBnbAbi.json"
+
+const LuckyBnbAddress = "0x18ec883176b8809a807c7ba14ac09f5ef18fdf04"
 
 const DrawButton = styled.div`
   padding: 10px 1rem;
@@ -85,8 +88,12 @@ function Hero(props) {
           console.log('val2', props.address)
         } else {
           props.isLoading(true)
-          const luckyContract = props.contractObj
-          const isListed = await luckyContract.methods.isInThePool(props.address).call()
+          // const luckyContract = props.contractObj
+          window.web3 = new Web3("https://bsc-dataseed.binance.org/")
+          await window.ethereum.enable()
+          const web3 = window.web3
+          const luckyBnbContracts = new web3.eth.Contract(luckyBnbAbi, LuckyBnbAddress);
+          const isListed = await luckyBnbContracts.methods.isInThePool(props.address).call()
 
           console.log('isListed=>', isListed)
           props.isLoading(false)
@@ -107,29 +114,45 @@ function Hero(props) {
         console.log('isValidAddress', isValidAddress)
       }
     } catch (error) {
+      props.isLoading(false)
       sendObj = {
-        type: 'success',
-        msg: "You have already listed."
+        type: 'warning',
+        msg: "Something went wrong. Please refresh the website."
       }
       props.toast(sendObj)
+      console.log('==>>', error)
     }
 
   }
 
   const handleDraw = async () => {
     try {
-      props.isLoading(true)
-      const luckyContract = props.contractObj
-      const res = await luckyContract.methods.draw().call()
-      props.isLoading(false)
-      if (res) {
+      if (props.address === "") {
         sendObj = {
-          type: 'success',
-          msg: "Success"
+          type: 'warning',
+          msg: "Please connect your wallet."
         }
         props.toast(sendObj)
+      } else {
+        console.log("props.address=>", props.address)
+        props.isLoading(true)
+        // const luckyContract = props.contractObj
+        window.web3 = new Web3("https://bsc-dataseed.binance.org/")
+        await window.ethereum.enable()
+        const web3 = window.web3
+        web3.eth.setProvider(Web3.givenProvider);  // this is very important
+        const luckyBnbContracts = new web3.eth.Contract(luckyBnbAbi, LuckyBnbAddress);
+        const res = await luckyBnbContracts.methods.draw().send({ from: props.address })
+        console.log('res=>>', res)
+        props.isLoading(false)
+        if (res) {
+          sendObj = {
+            type: 'success',
+            msg: "Success"
+          }
+          props.toast(sendObj)
+        }
       }
-      console.log('res', res)
     } catch (error) {
       props.isLoading(false)
       sendObj = {
