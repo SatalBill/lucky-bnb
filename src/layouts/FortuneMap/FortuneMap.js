@@ -39,11 +39,11 @@ function FortuneMap() {
 
       <div className={styles.roadmap_cards} ref={roadmap}>
         <div className={styles.roadmapLineWrapper}>
-          {/* <div
+          <div
             className={styles.innerLine}
             style={{ height: value + "px" }}
             ref={roadmapLine}
-          ></div> */}
+          ></div>
         </div>
 
         <FortuneMapSection

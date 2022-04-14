@@ -31,7 +31,7 @@ function HomePage(props: any) {
       try {
         setIsLoading(true)
         window.web3 = new Web3("https://bsc-dataseed.binance.org/")
-        await window.ethereum.enable()
+        // await window.ethereum.enable()
         const web3 = window.web3
         const luckyBnbContracts = new web3.eth.Contract(luckyBnbAbi, LuckyBnbAddress);
         setContractObj(luckyBnbContracts)
@@ -43,30 +43,30 @@ function HomePage(props: any) {
         setPrizePool(prizePoolTemp)
 
         // check network
-        const chainId = 56 // BSC Mainnet
-        if (window.ethereum.networkVersion !== chainId) {
-          try {
-            await window.ethereum.request({
-              method: 'wallet_switchEthereumChain',
-              params: [{ chainId: web3.utils.toHex(chainId) }],
-            });
-          } catch (err: any) {
-            // This error code indicates that the chain has not been added to MetaMask.
-            if (err.code === 4902) {
-              await window.ethereum.request({
-                method: 'wallet_addEthereumChain',
-                params: [
-                  {
-                    chainName: 'BSC Mainnet',
-                    chainId: web3.utils.toHex(chainId),
-                    nativeCurrency: { name: 'BNB', decimals: 18, symbol: 'BNB' },
-                    rpcUrls: ['https://bsc-dataseed.binance.org/'],
-                  },
-                ],
-              });
-            }
-          }
-        }
+        // const chainId = 56 // BSC Mainnet
+        // if (window.ethereum.networkVersion !== chainId) {
+        //   try {
+        //     await window.ethereum.request({
+        //       method: 'wallet_switchEthereumChain',
+        //       params: [{ chainId: web3.utils.toHex(chainId) }],
+        //     });
+        //   } catch (err: any) {
+        //     // This error code indicates that the chain has not been added to MetaMask.
+        //     if (err.code === 4902) {
+        //       await window.ethereum.request({
+        //         method: 'wallet_addEthereumChain',
+        //         params: [
+        //           {
+        //             chainName: 'BSC Mainnet',
+        //             chainId: web3.utils.toHex(chainId),
+        //             nativeCurrency: { name: 'BNB', decimals: 18, symbol: 'BNB' },
+        //             rpcUrls: ['https://bsc-dataseed.binance.org/'],
+        //           },
+        //         ],
+        //       });
+        //     }
+        //   }
+        // }
 
         setIsLoading(false)
       } catch (error) {

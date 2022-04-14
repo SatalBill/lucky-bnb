@@ -25,7 +25,6 @@
 .innerLine {
   width: 100%;
   background-color: white;
-  display: none;
 }
 
 @media (max-width: 1000px) {

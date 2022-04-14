@@ -32,7 +32,7 @@ function Introducing() {
 
       <div className={styles.btns}>
         <GradientButton title="Pancakeswap" link="https://pancakeswap.finance/swap?outputCurrency=0x18Ec883176B8809A807C7bA14AC09F5EF18FdF04" />
-        <GradientButton title="BSC Scan" link="https://bscscan.com/address/0xf0ad3d6be61aa3c455edf50bdb36ff6317d23b45#code" />
+        <GradientButton title="BSC Scan" link="https://bscscan.com/token/0x18Ec883176B8809A807C7bA14AC09F5EF18FdF04" />
         <GradientButton title="DEXTOOLS" link="https://www.dextools.io/app/bsc/pair-explorer/0xf0ad3d6be61aa3c455edf50bdb36ff6317d23b45" />
       </div>
     </div>
